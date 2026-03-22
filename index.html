@@ -171,14 +171,14 @@
   let currentY = rect.top;
 
   // Movimiento pequeño (entre -40px y +40px)
-  let moveX = (Math.random() - 0.5) * 80;
-  let moveY = (Math.random() - 0.5) * 80;
+  let moveX = (Math.random() - 0.5) * 40;
+  let moveY = (Math.random() - 0.5) * 40;
 
   let newX = currentX + moveX;
   let newY = currentY + moveY;
 
   // Límites de pantalla
-  const padding = 10;
+  const padding = 5;
 
   const maxX = window.innerWidth - rect.width - padding;
   const maxY = window.innerHeight - rect.height - padding;
