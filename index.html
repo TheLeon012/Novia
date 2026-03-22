@@ -161,22 +161,34 @@
   const btn = document.getElementById('noBtn');
 
   if (navigator.vibrate) {
-    navigator.vibrate([100, 50, 100]);
+    navigator.vibrate(80);
   }
 
   const rect = btn.getBoundingClientRect();
 
-  const padding = 10; // margen de seguridad
+  // Posición actual
+  let currentX = rect.left;
+  let currentY = rect.top;
+
+  // Movimiento pequeño (entre -40px y +40px)
+  let moveX = (Math.random() - 0.5) * 80;
+  let moveY = (Math.random() - 0.5) * 80;
+
+  let newX = currentX + moveX;
+  let newY = currentY + moveY;
+
+  // Límites de pantalla
+  const padding = 10;
 
   const maxX = window.innerWidth - rect.width - padding;
   const maxY = window.innerHeight - rect.height - padding;
 
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
+  newX = Math.max(padding, Math.min(newX, maxX));
+  newY = Math.max(padding, Math.min(newY, maxY));
 
   btn.style.position = 'fixed';
-  btn.style.left = x + 'px';
-  btn.style.top = y + 'px';
+  btn.style.left = newX + 'px';
+  btn.style.top = newY + 'px';
   }
 </script>
 
